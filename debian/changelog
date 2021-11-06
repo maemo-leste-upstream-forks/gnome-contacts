@@ -1,0 +1,348 @@
+gnome-contacts (3.30.2-1) unstable; urgency=medium
+
+  * New upstream release
+  * Restore -Wl,-O1 to our LDFLAGS
+  * Bump Standards-Version to 4.3.0
+
+ -- Jeremy Bicha <jbicha@debian.org>  Sun, 23 Dec 2018 09:21:54 -0500
+
+gnome-contacts (3.30.1-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Jeremy Bicha <jbicha@debian.org>  Tue, 25 Sep 2018 11:16:25 -0400
+
+gnome-contacts (3.30-1) unstable; urgency=medium
+
+  * New upstream release
+  * Update meson configure options for new release
+  * Bump Standards-Version to 4.2.1
+  * Add X-Ubuntu-Use-Langpack to opt in to Ubuntu language pack handling
+    (LP: #1779574)
+  * Stop building telepathy support. It is no longer supported by GNOME Online
+    Accounts & Debian GNOME no longer installs Empathy by default.
+    (LP: #1754803)
+
+ -- Jeremy Bicha <jbicha@debian.org>  Fri, 07 Sep 2018 12:33:13 -0400
+
+gnome-contacts (3.28.2-1) unstable; urgency=medium
+
+  * New upstream release 
+
+ -- Tim Lunn <tim@feathertop.org>  Tue, 08 May 2018 16:59:56 +1000
+
+gnome-contacts (3.28.1-1) unstable; urgency=medium
+
+  * New upstream version 
+
+ -- Tim Lunn <tim@feathertop.org>  Fri, 13 Apr 2018 20:39:18 +1000
+
+gnome-contacts (3.28.0-1) unstable; urgency=medium
+
+  * New upstream version
+
+ -- Tim Lunn <tim@feathertop.org>  Sat, 17 Mar 2018 18:03:59 +1100
+
+gnome-contacts (3.27.92-1) unstable; urgency=medium
+
+  * New upstream release candidate
+  * Release to unstable
+
+ -- Tim Lunn <tim@feathertop.org>  Sat, 10 Mar 2018 08:55:26 +1100
+
+gnome-contacts (3.27.90-1) experimental; urgency=medium
+
+  * New upstream development release
+    - Embedded map for contact addresses is no longer available
+  * Build with meson
+  * Depend on telepathy-mission-control-5 to fix warnings if it's not
+    installed
+
+ -- Jeremy Bicha <jbicha@debian.org>  Tue, 13 Feb 2018 10:30:07 -0500
+
+gnome-contacts (3.26.1-1) unstable; urgency=medium
+
+  * New upstream release
+  * Update Vcs fields for migration to https://salsa.debian.org/
+  * Bump debhelper compat to 11
+  * Bump Standards-Version to 4.1.3
+
+ -- Jeremy Bicha <jbicha@debian.org>  Wed, 24 Jan 2018 08:10:46 -0500
+
+gnome-contacts (3.26-2) unstable; urgency=medium
+
+  * Update Vcs fields for conversion to git
+  * Add debian/gbp.conf
+  * Bump Standards-Version to 4.1.2
+
+ -- Jeremy Bicha <jbicha@debian.org>  Thu, 14 Dec 2017 17:24:03 -0500
+
+gnome-contacts (3.26-1) unstable; urgency=medium
+
+  * New upstream release
+  * Use appstream-util appdata-to-news to install NEWS
+
+ -- Jeremy Bicha <jbicha@debian.org>  Sun, 17 Sep 2017 21:52:03 -0400
+
+gnome-contacts (3.25.4-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control.in:
+    - Drop Build-Depends on intltool
+    - Bump dependencies according to configure.ac: folks >= 0.11.4,
+      glib >= 2.44.0, gtk+ >= 3.22.0, & telepathy-glib >= 0.22.0
+  * Bump Standards-Version to 4.1.0
+
+ -- Jeremy Bicha <jbicha@debian.org>  Wed, 30 Aug 2017 13:11:56 -0400
+
+gnome-contacts (3.22.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Use non-multiarch path (/usr/lib/gnome-contacts) for libexecdir.
+
+ -- Michael Biebl <biebl@debian.org>  Wed, 21 Sep 2016 18:22:16 +0200
+
+gnome-contacts (3.20.0-2) unstable; urgency=medium
+
+  * Convert from cdbs to dh.
+  * Bump dh compat to 10 (automatic dh-autoreconf)
+
+ -- Andreas Henriksson <andreas@fatal.se>  Tue, 13 Sep 2016 19:16:11 +0200
+
+gnome-contacts (3.20.0-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 19 May 2016 02:15:20 +0200
+
+gnome-contacts (3.19.91-2) unstable; urgency=medium
+
+  * Bump gtk+ build-dependency to >= 3.20.0 (Closes: #821857)
+    - uses gtk_widget_set_focus_on_click API new in 3.20, see also:
+      https://git.gnome.org/browse/gnome-contacts/commit/?id=fefba769
+
+ -- Andreas Henriksson <andreas@fatal.se>  Wed, 20 Apr 2016 14:14:45 +0200
+
+gnome-contacts (3.19.91-1) unstable; urgency=medium
+
+  [ Laurent Bigonville ]
+  * New upstream release.
+  * debian/control.in: Bump Standards-Version to 3.9.8 (no further changes)
+  * debian/control.in: Bump BD on glib to 2.37.6, as per configure.ac
+
+ -- Andreas Henriksson <andreas@fatal.se>  Tue, 19 Apr 2016 10:53:51 +0200
+
+gnome-contacts (3.18.1-1) unstable; urgency=medium
+
+  [ Andreas Henriksson ]
+  * Remove 'src/*vala.stamp' to force rebuild from vala src (Closes: #802520)
+
+  [ Michael Biebl ]
+  * New upstream release.
+  * Drop Build-Depends on libnotify-dev, no longer required.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 12 Nov 2015 15:57:47 +0100
+
+gnome-contacts (3.18.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update gtk+ build-dependency to >= 3.16.0
+
+ -- Andreas Henriksson <andreas@fatal.se>  Thu, 24 Sep 2015 12:06:25 +0200
+
+gnome-contacts (3.16.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update Build-Depends as per configure.ac:
+    - Add intltool (>= 0.40).
+    - Bump libebook1.2-dev to (>= 3.13.90).
+    - Bump libedataserver1.2-dev to (>= 3.13.90).
+    - Add libedataserverui1.2-dev (>= 3.13.90).
+    - Add libchamplain-0.12-dev.
+    - Add libclutter-gtk-1.0-dev.
+    - Add libgeocode-glib-dev (>= 3.15.3).
+  * Add Homepage: URL.
+  * Bump debhelper compatibility level to 9.
+  * Update debian/copyright to the final format version 1.0.
+
+ -- Michael Biebl <biebl@debian.org>  Mon, 15 Jun 2015 18:00:20 +0200
+
+gnome-contacts (3.14.2-1) unstable; urgency=medium
+
+  [ Pedro Beja ]
+  * New upstream release.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 28 May 2015 01:58:17 +0200
+
+gnome-contacts (3.14.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control.in: Bump Standards-Version to 3.9.6 (no further changes)
+
+ -- Laurent Bigonville <bigon@debian.org>  Sat, 18 Oct 2014 00:41:04 +0200
+
+gnome-contacts (3.14.0-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 22 Sep 2014 21:17:55 +0200
+
+gnome-contacts (3.13.92-1) unstable; urgency=medium
+
+  [ Andreas Henriksson ]
+  * Bump Standards-Version to 3.9.5
+
+  [ Sjoerd Simons ]
+  * New upstream release
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sat, 20 Sep 2014 10:37:33 +0200
+
+gnome-contacts (3.13.91-1) experimental; urgency=medium
+
+  * New upstream development release.
+  * Bump valac build-dependency to >= 0.24.0 according to configure.ac
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sun, 07 Sep 2014 11:45:12 +0200
+
+gnome-contacts (3.12.0-1) unstable; urgency=low
+
+  [ Simon McVittie ]
+  * Team upload
+  * New upstream release
+    - has undeclared dependency on Gtk 3.12, update build-dependency
+  * Use dh-autoreconf
+  * Don't force use of GNOME 3.10 gnome-desktop
+
+ -- Andreas Henriksson <andreas@fatal.se>  Wed, 02 Apr 2014 21:41:19 +0200
+
+gnome-contacts (3.10.1-2) experimental; urgency=low
+
+  * Build against G3.10 gnome-destkop
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Thu, 07 Nov 2013 08:06:01 +0100
+
+gnome-contacts (3.10.1-1) experimental; urgency=low
+
+  * New upstream release
+  * Bump b-d on valac, folks and gtk+3
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Fri, 01 Nov 2013 19:23:45 +0100
+
+gnome-contacts (3.8.3-1) unstable; urgency=low
+
+  [ Jeremy Bicha ]
+  * debian/control.in:
+    - Drop alternate build-depends on valac-0.18 since it's no longer
+      in Debian
+
+  [ Michael Biebl ]
+  * New upstream release.
+  * Loosen Build-Depends on libgnome-desktop-3-dev, we do not strictly require
+    version (>= 3.6.0) which is not yet available in unstable.
+  * Bump Standards-Version to 3.9.4. No further changes.
+  * Upload to unstable.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 19 Sep 2013 18:23:06 +0200
+
+gnome-contacts (3.8.0-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Thu, 04 Apr 2013 14:59:29 +0200
+
+gnome-contacts (3.7.91-1) experimental; urgency=low
+
+  [ Thomas Bechtold ]
+  * New upstream release
+
+  [ Sjoerd Simons ]
+  * New upstream release (3.7.90)
+  * debian/control: bump build-depends
+
+  [ Andreas Henriksson ]
+  * New upstream release (3.7.91)
+  * Bump build-dependency on libfolks*-dev to (>= 0.9)
+    - gnome-contacts uses libgee-0.8 so we need a libfolks that do too.
+    - libgtk-3-dev (>= 3.7.10)
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sun, 24 Mar 2013 18:24:03 +0100
+
+gnome-contacts (3.6.1-1) experimental; urgency=low
+
+  [ Jeremy Bicha ]
+  * debian/control.in:
+    - Build-depend on valac (>= 0.14.0) (Closes: #675643)
+
+  [ Sjoerd Simons ]
+  * New upstream release
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Thu, 18 Oct 2012 23:35:54 +0200
+
+gnome-contacts (3.4.1-2) unstable; urgency=low
+
+  [ Jeremy Bicha ]
+  * debian/control.in:
+    - Build-depend on valac (>= 0.14.0) (Closes: #675643)
+
+  [ Michael Biebl ]
+  * debian/patches/01-icon-rename.patch
+    - Handle renaming of the preferences-system-date-and-time-symbolic icon in
+      gnome-icon-theme-symbolic. Patch cherry-picked from upstream Git.
+
+ -- Michael Biebl <biebl@debian.org>  Sun, 16 Jun 2013 21:41:08 +0200
+
+gnome-contacts (3.4.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump Build-Depends on libgtk-3-dev to (>= 3.4.0).
+
+ -- Michael Biebl <biebl@debian.org>  Mon, 30 Apr 2012 16:59:24 +0200
+
+gnome-contacts (3.4.0-2) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Michael Biebl <biebl@debian.org>  Sun, 22 Apr 2012 18:36:09 +0200
+
+gnome-contacts (3.4.0-1) experimental; urgency=low
+
+  [ Josselin Mouette ]
+  * Update repository URL.
+
+  [ Jeremy Bicha ]
+  * New upstream release.
+  * debian/control.in:
+    - Build-depend on libfolks-eds-dev & libtelepathy-glib-dev
+    - Bump glib to (>= 2.31.10)
+    - Bump Standards-Version to 3.9.3
+
+  [ Laurent Bigonville ]
+  * debian/control.in:
+    - Drop duplicate Section
+    - Bump libgtk-3-dev build-dependency to 3.3.6, required by
+      GtkApplicationWindow
+
+ -- Laurent Bigonville <bigon@debian.org>  Tue, 03 Apr 2012 23:00:56 +0200
+
+gnome-contacts (3.2.2-2) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Michael Biebl <biebl@debian.org>  Sat, 17 Dec 2011 08:18:51 +0100
+
+gnome-contacts (3.2.2-1) experimental; urgency=low
+
+  [ Jeremy Bicha ]
+  * Initial release. Closes: #646895
+
+  [ Michael Biebl ]
+  * Update to 3.2.2.
+  * debian/watch: Track .xz tarballs.
+  * debian/control.in:
+    - Bump Build-Depends on libebook1.2-dev and libedataserver1.2-dev to
+      (>= 3.2).
+
+  [ Sjoerd Simons ]
+  * Depend on valac-0.14 instead of valac (>= 0.14)
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sun, 13 Nov 2011 14:27:36 +0100
