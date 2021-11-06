@@ -57,7 +57,13 @@ public class Contacts.ContactSheet : ContactForm {
     return value_button;
   }
 
-  void add_row_with_label (string label_value, string value) {
+  void add_row_with_label (string label_value,
+                           string value,
+                           Gtk.Widget? btn1 = null,
+                           Gtk.Widget? btn2 =null) {
+    if (value == "" || value == null)
+      return;
+
     var type_label = new Label (label_value);
     type_label.xalign = 1.0f;
     type_label.set_halign (Align.END);
@@ -79,9 +85,21 @@ public class Contacts.ContactSheet : ContactForm {
     value_label.margin_top = 3;
     value_label.margin_bottom = 3;
 
-    this.container_grid.attach (value_label, 1, this.last_row, 1, 1);
+    if (btn1 != null || btn2 !=null) {
+      var value_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
+      value_box.pack_start (value_label, false, false, 0);
+
+      if (btn1 != null)
+        value_box.pack_end (btn1, false, false, 0);
+      if (btn2 != null)
+        value_box.pack_end (btn2, false, false, 0);
+      this.container_grid.attach (value_box, 1, this.last_row, 1, 1);
+    } else {
+      this.container_grid.attach (value_label, 1, this.last_row, 1, 1);
+    }
     this.last_row++;
   }
+
 
   private void update () {
     this.last_row = 0;
@@ -177,6 +195,15 @@ public class Contacts.ContactSheet : ContactForm {
     }
   }
 
+  private Gtk.Button create_button (string icon) {
+    var button = new Gtk.Button.from_icon_name (icon, Gtk.IconSize.BUTTON);
+    button.set_halign (Gtk.Align.END);
+    button.get_style_context ().add_class ("flatten");
+
+    return button;
+  }
+
+
   private void add_phone_nrs (Persona persona) {
     var phone_details = persona as PhoneDetails;
     if (phone_details != null) {
@@ -186,13 +213,29 @@ public class Contacts.ContactSheet : ContactForm {
         if (this.store.caller_account != null) {
           var button = add_row_with_button (TypeSet.phone.format_type (phone), phone.value);
           button.clicked.connect (() => {
-              Utils.start_call (phone.value, this.store.caller_account);
+              Utils.start_call (phone.get_normalised (), this.store.caller_account);
             });
         } else {
           add_row_with_label (TypeSet.phone.format_type (phone), phone.value);
         }
 #else
-        add_row_with_label (TypeSet.phone.format_type (phone), phone.value);
+        // Show a call button when we have a hanlder for it
+        Gtk.Button call_button = null;
+        Gtk.Button sms_button = null;
+        if (AppInfo.get_all_for_type ("x-scheme-handler/tel").length () > 0) {
+          call_button = create_button ("call-start-symbolic");
+          call_button.clicked.connect (() => {
+            Utils.start_call (phone.get_normalised ());
+          });
+        }
+        if (AppInfo.get_all_for_type ("x-scheme-handler/sms").length () > 0) {
+          sms_button = create_button ("user-available-symbolic");
+          sms_button.clicked.connect (() => {
+            Utils.send_sms (phone.get_normalised ());
+          });
+        }
+
+        add_row_with_label (TypeSet.phone.format_type (phone), phone.value, call_button, sms_button);
 #endif
       }
     }

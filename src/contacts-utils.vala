@@ -112,6 +112,24 @@ namespace Contacts.Utils {
     var request = new TelepathyGLib.AccountChannelRequest(account, request_dict, int64.MAX);
     request.ensure_channel_async.begin ("org.freedesktop.Telepathy.Client.Empathy.Call", null);
   }
+  #else
+  public void start_call (string number) {
+    var uri = "tel:" + Uri.escape_string (number, "+" , false);
+    try {
+      Gtk.show_uri_on_window (null, uri, 0);
+    } catch (Error e) {
+      debug ("Couldn't launch URI \"%s\": %s", uri, e.message);
+    }
+  }
+
+  public void send_sms (string number) {
+    var uri = "sms:" + Uri.escape_string (number, "+" , false);
+    try {
+      Gtk.show_uri_on_window (null, uri, 0);
+    } catch (Error e) {
+      debug ("Couldn't launch URI \"%s\": %s", uri, e.message);
+    }
+  }
 #endif
 
   public T? get_first<T> (Collection<T> collection) {
